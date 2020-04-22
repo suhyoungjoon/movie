@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: movie 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: movie 
+    spec:
+      containers:
+        - name: movie 
+          image: admin9.azurecr.io/movie
+          ports:
+          - containerPort: 8080
