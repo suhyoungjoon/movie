@@ -14,7 +14,7 @@ variables:
   # containerRegistryDockerConnection: 'acr'
   # environment: 'aks.default'
 - name: imageRepository
-  value: 'gateway'
+  value: 'movie'
 - name: dockerfilePath
   value: '**/Dockerfile'
 - name: tag
