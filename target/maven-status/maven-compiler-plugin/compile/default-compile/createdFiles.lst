@@ -1,0 +1,11 @@
+local\Rated.class
+local\config\kafka\KafkaProcessor.class
+local\PolicyHandler.class
+local\Movie.class
+local\Registered.class
+local\Canceled.class
+local\MovieController.class
+local\AbstractEvent.class
+local\Application.class
+local\Purchased.class
+local\MovieRepository.class
