@@ -3,7 +3,8 @@ kind: Deployment
 metadata:
   name: movie 
 spec:
-  replicas: 1
+  type: ClusterIP
+  replicas: 3
   template:
     metadata:
       labels:
