@@ -10,7 +10,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PolicyHandler{
-    
+
+    @Autowired
+    MovieRepository movieRepository;
+
     @StreamListener(KafkaProcessor.INPUT)
     public void wheneverRated_ScoreUpdate(@Payload Rated rated){
 
@@ -23,7 +26,15 @@ public class PolicyHandler{
 
         if(purchased.isMe()){
             System.out.println("##### listener PurchaseUpdate : " + purchased.toJson());
+            System.out.println("##### /purchasingSystem/purchase  called #####");
+
+            Movie movie = new Movie();
+            movie.setMovieId(purchased.getMovieId());
+            movie.setMovieName(purchased.getMovieName());
+            movie.setCountPurchase(1);
+            movieRepository.save(movie);
         }
+
     }
     @StreamListener(KafkaProcessor.INPUT)
     public void wheneverCanceled_PurchaseUpdate(@Payload Canceled canceled){
